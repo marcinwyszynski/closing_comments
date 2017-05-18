@@ -31,6 +31,7 @@ module ClosingComments
       type = node.type
       return '' if type == :cbase
       first, second = node.children
+      return ":#{first}" if type == :sym 
       if type == :str
         loc = node.loc
         # Preserve quote formatting, some folks may prefer double quotes.
