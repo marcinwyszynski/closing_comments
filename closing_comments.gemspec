@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.bindir      = 'bin'
   spec.files       = Dir['**/*.rb']
   spec.test_files  = spec.files.grep(/^spec/)
-  spec.executables = ['bin/closing_comments']
+  spec.executables = ['closing_comments']
 
   spec.add_dependency 'parser', '~> 2.4'
   spec.add_development_dependency 'bundler', '~> 1.14', '>= 1.14.6'
