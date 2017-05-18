@@ -22,7 +22,7 @@ module ClosingComments
 
     def process(path)
       return @processor.process(path: path) if File.file?(path)
-      Dir.glob("#{path}/**/*.rb").each(&method(:process))
+      Dir.glob(File.join(path, '/**/*.rb')).each(&method(:process))
     end
 
     def options
