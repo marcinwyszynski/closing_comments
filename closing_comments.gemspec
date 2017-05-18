@@ -10,9 +10,10 @@ Gem::Specification.new do |spec|
   spec.homepage    = 'https://github.com/marcinwyszynski/closing_comments'
   spec.license     = 'MIT'
 
+  spec.bindir      = 'bin'
   spec.files       = Dir['**/*.rb']
   spec.test_files  = spec.files.grep(/^spec/)
-  spec.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.executables = ['bin/closing_comments']
 
   spec.add_dependency 'parser', '~> 2.4'
   spec.add_development_dependency 'bundler', '~> 1.14', '>= 1.14.6'
