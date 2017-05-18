@@ -47,7 +47,7 @@ module ClosingComments
     end
 
     def lines
-      @lines ||= content.split("\n")
+      @lines ||= content.split("\n").push('')
     end
 
     # This method reeks of :reek:FeatureEnvy (entity).
