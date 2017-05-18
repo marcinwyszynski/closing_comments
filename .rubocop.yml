@@ -1,0 +1,16 @@
+Style/Documentation:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
+AllCops:
+  DisplayCopNames: true
+  ExtraDetails: true
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*.rb

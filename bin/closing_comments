@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift(File.dirname(File.realpath(__FILE__)) + '/../lib')
+require 'optparse'
+require 'pry'
+
+require 'closing_comments'
+
+module ClosingComments
+  class App
+    def initialize(args)
+      @args = args
+      @processor = options.fetch(:processor, Processor::Reporter.new)
+    end
+
+    def run
+      @args = ['.'] if @args.empty?
+      @args.each(&method(:process))
+      @processor.report
+    end
+
+    def process(path)
+      return @processor.process(path: path) if File.file?(path)
+      Dir.glob("#{path}/**/*.rb").each(&method(:process))
+    end
+
+    def options
+      {}.tap do |options|
+        OptionParser.new do |opts|
+          opts.banner = 'Usage: closing_comments [options]'
+          opts.on('-a', '--auto-fix', 'Automatically fix issues') do
+            options[:processor] = Processor::Fixer.new
+          end
+        end.parse!(@args)
+      end
+    end
+  end # class App
+end # module ClosingComments
+
+ClosingComments::App.new(ARGV).run if __FILE__ == $PROGRAM_NAME
