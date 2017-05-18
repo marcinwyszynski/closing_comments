@@ -16,6 +16,7 @@ module ClosingComments
       @args = ['.'] if @args.empty?
       @args.each(&method(:process))
       @processor.report
+      Kernel.exit(@processor.success? ? 0 : 1)
     end
 
     def process(path)

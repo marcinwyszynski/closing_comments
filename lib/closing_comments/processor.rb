@@ -11,6 +11,10 @@ module ClosingComments
       @reportables[path] = source if source.problematic?
     end
 
+    def success?
+      @reportables.empty?
+    end
+
     private
 
     attr_reader :reportables
