@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
 
   spec.files       = Dir['**/*.rb']
   spec.test_files  = spec.files.grep(/^spec/)
-  spex.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
 
   spec.add_dependency 'parser', '~> 2.4'
   spec.add_development_dependency 'bundler', '~> 1.14', '>= 1.14.6'
