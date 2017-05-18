@@ -1,3 +1,5 @@
+require 'colorize'
+
 module ClosingComments
   class Processor
     def initialize
@@ -21,13 +23,13 @@ module ClosingComments
 
     class Reporter < Processor
       def handle(source)
-        print source.problematic? ? 'F' : '.'
+        print source.problematic? ? 'F'.red : '.'.green
       end
 
       def report
         puts("\n\n")
-        return puts 'All good!' if reportables.empty?
-        puts "Problems #{action} in #{reportables.count} files:\n\n"
+        return puts 'All good!'.green if reportables.empty?
+        puts "Problems #{action} in #{reportables.count} files:\n".red
         reportables.each(&method(:report_file))
       end
 
@@ -51,7 +53,7 @@ module ClosingComments
       def handle(source)
         return super unless source.problematic?
         File.write(source.path, source.fix)
-        print 'A'
+        print 'A'.yellow
       end
 
       private
