@@ -61,7 +61,7 @@ module ClosingComments
       end
 
       def name
-        name!(dispatch.children.last)
+        name!(dispatch.children[2])
       end
 
       def entity
