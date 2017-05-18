@@ -38,5 +38,4 @@ module ClosingComments
   end # class App
 end # module ClosingComments
 
-puts(ARGV)
 ClosingComments::App.new(ARGV).run
