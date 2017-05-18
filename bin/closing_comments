@@ -38,4 +38,5 @@ module ClosingComments
   end # class App
 end # module ClosingComments
 
-ClosingComments::App.new(ARGV).run if __FILE__ == $PROGRAM_NAME
+puts(ARGV)
+ClosingComments::App.new(ARGV).run
