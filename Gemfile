@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gemspec
 
 group :test do
+  gem 'ensure_version_bump', require: false
   gem 'pry'
   gem 'reek', require: false
   gem 'rspec'
