@@ -35,4 +35,4 @@ steps:
     <<: *test_step
     title: 'Ensure version bump'
     commands:
-      - bundle exec ruby ensure_version_bump closing_comments
+      - bundle exec ensure_version_bump closing_comments
