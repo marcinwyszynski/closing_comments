@@ -1,0 +1,16 @@
+version: '1.0'
+
+steps:
+
+  build_image:
+    title: 'Build image'
+    type: build
+    image_name: marcinwyszynski/closing_comments
+
+  test_gem:
+    title: 'Test the gem'
+    image: ${{build_image}}
+    commands:
+      - bundle exec rubocop
+      - bundle exec reek
+      - bundle exec rspec
