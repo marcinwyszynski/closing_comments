@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name    = 'closing_comments'
-  spec.version = '0.1.1'
+  spec.version = '0.1.2'
 
   spec.author      = 'Marcin Wyszynski'
   spec.summary     = 'Helper to add closing comments to Ruby entities'
