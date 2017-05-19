@@ -15,6 +15,7 @@ class EnsureVersion
     end
     puts "#{'[FAIL]'.red} Local version (#{local_version}) not higher than " \
          "remote (#{remote_version}), please bump."
+    Kernel.exit(1)
   end
 
   private
